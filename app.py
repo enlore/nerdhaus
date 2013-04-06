@@ -31,7 +31,7 @@ def index():
 
     bills = [dict(name=row[0], due_amount=row[1], late_amount=row[2], 
         due_date=row[3], late_after_date=row[4], termination_date=row[5], 
-        pay_to=row[6]) for row in cur.fetchall()]
+        pay_to=row[6], id=row[7]) for row in cur.fetchall()]
 
     return render_template('index.html', bills = bills)
 
@@ -60,9 +60,10 @@ def create_bill():
 
 @app.route('/delete/<int:bill_id>', methods = ['GET'])
 def delete(bill_id):
-    g.db.execute('DELETE from bills where name=?', bill_id)
+    g.db.execute('DELETE from bills where name=?', (bill_id,))
     g.db.commit()
 
     return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run()
