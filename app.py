@@ -58,9 +58,9 @@ def create_bill():
 
     return redirect(url_for('index'))
 
-@app.route('/delete/<bill_name>', methods = ['DEL'])
+@app.route('/delete/<bill_name>', methods = ['GET'])
 def delete(bill_name):
-    g.db.execute('DEL from bills where name=?', bill_name)
+    g.db.execute('DELETE from bills where name=?', bill_name)
     g.db.commit()
 
     return redirect(url_for('index'))
