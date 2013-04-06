@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h1> le Bills </h1>
+    <ol>
+    {% for bill in bills %}
+    <hr />
+    <li><ul>
+        <li>Name: {{ bill.name }} </li>
+        <li>pay_to: {{ bill.pay_to }} </li>
+        <li>amount due: {{ bill.due_amount }} </li>
+        <li>date due: {{ bill.due_date }} </li>
+        <li>late amount: {{ bill.late_amount }} </li>
+        <li>late after date: {{ bill.late_after_date }} </li>
+        <li>termination date: {{ bill.termination_date }} </li>
+    </ul>
+    </li>
+    {% endfor %}
+</body>
+</html>

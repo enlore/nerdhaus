@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
+from bill import Bill
 
 app = Flask(__name__)
 
@@ -8,7 +9,17 @@ app.debug = True
 
 @app.route('/', methods = ['GET'])
 def index():
-    return 'hey'
+    bills = []
+    gw_bill = Bill()
+    elec_bill = Bill()
+    rent = Bill()
+
+    bills.append(gw_bill)
+    bills.append(elec_bill)
+    bills.append(rent)
+
+    return render_template('index.html', bills = bills)
+
 
 
 
