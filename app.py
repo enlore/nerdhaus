@@ -36,16 +36,17 @@ def teardown_request(exception):
 def index():
     cur = g.db.execute('SELECT * from bills')
 
-    bills = [
-        dict(
-            name=row[0], 
-            due_amount=row[1], 
-            late_amount=row[2], 
-            due_date=row[3], 
-            late_after_date=row[4], 
-            termination_date=row[5], 
-            pay_to=row[6], 
-            id=row[7]) for row in cur.fetchall()]
+    bills = [dict(
+            bill_id=row[0],
+            name = row[1],
+            pay_to = row[2],
+            due_amount = row[3],
+            due_date = row[4],
+            late_amount = row[5],
+            late_after_date = row[6],
+            termination = row[7]
+        ) for row in cur.fetchall()
+   ]
         
     for bill in bills:
         bill['split'] = bill['due_amount'] / 4
