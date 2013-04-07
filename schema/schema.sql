@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS bills;
 CREATE TABLE bills (
-    id int PRIMARY KEY AUTO INCREMENT, 
+    bill_id integer PRIMARY KEY AUTOINCREMENT, 
     name text, 
     pay_to text, 
     due_amount real, 
