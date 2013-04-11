@@ -8,7 +8,10 @@
 <h1> le Bills </h1>
     <a href="/new"> new bill </a>
     {% if bill_meta %}
-    <p> nearest due bill: {{ bill_meta['next_due_name'] }} on {{ bill_meta['next_due'] }} </p>
+        <!-- NEXT DUE -->
+        <p> nearest due bill: {{ bill_meta['next_due_name'] }} on {{ bill_meta['next_due'] }} </p>
+
+        <!-- LATE LIST -->
         {% if bill_meta['late_list'] %}
             <p> late bills: </p>
             <ul>
@@ -16,6 +19,11 @@
                 <li> {{ late_bill }} </li>    
             {% endfor %}
         </ul>
+        {% endif %}
+
+        <!-- NEXT TERMINATED -->
+        {% if bill_meta['next_term'] %}
+            <p> next terminated bill: {{ bill_meta['next_term'] }} </p>
         {% endif %}
     {% endif %}
     <ol>

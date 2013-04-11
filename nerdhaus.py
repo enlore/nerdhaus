@@ -43,7 +43,7 @@ def index():
             due_date = row[4],
             late_amount = row[5],
             late_after_date = row[6],
-            termination = row[7]
+            termination_date = row[7]
         ) for row in cur.fetchall()
    ]
 
@@ -54,9 +54,10 @@ def index():
     bill_meta = {}
 
     today = datetime.date.today()
-
     smallest_delta = datetime.timedelta(9999)
+    term_nearest = datetime.timedelta(9999)
     bill_name = None
+
     late_bills = []
 
     for bill in bills:
@@ -76,6 +77,15 @@ def index():
 
         if tdelta < datetime.timedelta(0):
             late_bills.append(bill['name'])
+
+        y, m, d = bill['termination_date'].split('/')
+        term_date = datetime.date(int(y), int(m), int(d))
+
+        term_delta = term_date - today
+
+        if term_delta < term_nearest:
+            term_nearest = term_delta
+            bill_meta['next_term'] = bill['name']
             
         
     bill_meta['next_due'] = today + smallest_delta
