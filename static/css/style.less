@@ -1,0 +1,47 @@
+@import url("mixins.less");
+// resets
+body {
+	background: @lightBlue;
+	font-family: Arial, sans-serif;
+}
+
+body,html,h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+@tan: #FAFAFA;
+@lightBlue: #E8FBFE;
+@hlGreen: #BCF794;
+@lightGreen: #82C555;
+@darkGreen: #445544;
+@grey: #1E1E1E;
+@red: #800000;
+@orange: #FF7800;
+
+.lightBlue { background: @lightBlue; }	
+.hlGreen { background: @hlGreen; }	
+.lightGreen { background: @lightGreen; }	
+.darkGreen { background: @darkGreen; }	
+
+.red-font { color: @red; }
+.orange-font { color: @orange; }
+.green-font { color: @lightGreen; }
+.dark-green-font { color: @hlGreen; }
+
+// styling
+.border-black { border: 1px solid black; }
+.shadowBottom { box-shadow: 0px 2px 2px -1px grey; }
+.grad1 { #gradient.radial(@lightBlue, @hlGreen); }
+
+#bill-meta {
+   background: @tan; 
+}
+
+.bill {
+  margin-bottom: .5em;
+}

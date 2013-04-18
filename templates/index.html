@@ -1,44 +1,78 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
 <head>
 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>Foundation 4</title>
+
+
+<link rel="stylesheet" href="/static/css/normalize.css" />
+
+<link rel="stylesheet" href="/static/css/foundation.css" />
+
+<link rel="stylesheet/less" type="text/css" href="/static/css/style.less" />
+
+
+<script src="/static/js/vendor/custom.modernizr.js"></script>
+
 </head>
+<div class="row">
+    <div class="large-4 columns push-8">
+        <h1>Hive Mind</h1>
+        <h3>Welcome to Haus Central</h3>
+        <div id="bill-meta">
+            {% if bill_meta %}
+            <!-- NEXT DUE -->
+            <p id="next-bill-due" class="orange-font"> nearest due bill: {{ bill_meta['next_due_name'] }} on {{ bill_meta['next_due'] }} </p>
 
-<body> 
-<h1> le Bills </h1>
-    <a href="/new"> new bill </a>
-    {% if bill_meta %}
-        <!-- NEXT DUE -->
-        <p> nearest due bill: {{ bill_meta['next_due_name'] }} on {{ bill_meta['next_due'] }} </p>
-
-        <!-- LATE LIST -->
-        {% if bill_meta['late_list'] %}
-            <p> late bills: </p>
+            <!-- LATE LIST -->
+            {% if bill_meta['late_list'] %}
+            <p id="late-bills" > late bills: </p>
             <ul>
-            {% for late_bill in bill_meta['late_list'] %}
-                <li> {{ late_bill }} </li>    
-            {% endfor %}
-        </ul>
-        {% endif %}
+                {% for late_bill in bill_meta['late_list'] %}
+                <li class="red-font"> {{ late_bill }} </li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-        <!-- NEXT TERMINATED -->
-        {% if bill_meta['next_term'] %}
+            <!-- NEXT TERMINATED -->
+            {% if bill_meta['next_term'] %}
             <p> next terminated bill: {{ bill_meta['next_term'] }} </p>
-        {% endif %}
-    {% endif %}
+            {% endif %}
+            {% endif %}
+        </div>
+        <a href="/new" class="button">new bill</a>
+    </div> <!-- END BILL META -->
+
+    <div class="large-8 columns pull-4">
     <ol>
     {% if bills %}
         {% for bill in bills %}
-            <hr />
-            <li><ul>
+            <li class="bill"><ul>
                 <li>Name: {{ bill.name }} </li>
-                <li>pay_to: {{ bill.pay_to }} </li>
-                <li>amount due: {{ bill.due_amount }} </li>
-                <li>date due: {{ bill.due_date }} </li>
-                <li>late amount: {{ bill.late_amount }} </li>
-                <li>late after date: {{ bill.late_after_date }} </li>
-                <li>termination date: {{ bill.termination_date }} </li>
-                <li>per roommate split: {{ bill.split }} </li>
+
+                <li>Pay To: {{ bill.pay_to }} </li>
+
+                <li>Amount Due: <span class="dark-green-font"> 
+                    {{ bill.due_amount }} </span> </li>
+
+                <li>Date Due: {{ bill.due_date }} </li>
+
+                <li>Late Amount: <span class="orange-font"> 
+                    {{ bill.late_amount }} </span></li>
+
+                <li>Late After Date: {{ bill.late_after_date }} </li>
+
+                <li>Termination Date: <span class="red-font">
+                    {{ bill.termination_date }} </span> </li>
+
+                <li>Per Roommate Split: <span class="green-font">
+                    {{ bill.split }}</span> </li>
+
                 <li><a href="/delete/{{bill.id}}">delete</a> </li>
                 </ul>
             </li>
@@ -48,6 +82,22 @@
         {% with fmessage = get_flashed_messages() %}
         <h2> {{ fmessage[0] }} </h2>
         {% endwith %}
-    {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+        <script src="/static/js/less-1.3.3.min.js" type="application/javascript"></script>
+        <script type="application/javascript">
+        less = {
+            env:        "development",      // or "production"
+            async:      false,              // load imports async
+            fileAsync:  false,              // load imports async when in a page under a     file protocol
+            poll:       500,
+            functions:  {},                 // user functions, keyed by name
+            dumpLineNumbers: "comments",    // or "mediaQuery" or "all"
+            relativeUrls: false,            // whether to adjust url's to be relative
+            // if false, url's are already relative to t    he entry less file
+        };
+        </script>
 </body>
 </html>
