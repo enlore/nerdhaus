@@ -1,18 +1,5 @@
 @import url("mixins.less");
 // resets
-body {
-	background: @lightBlue;
-	font-family: Arial, sans-serif;
-}
-
-body,html,h1,h2,h3,h4,h5,h6 {
-	margin: 0;
-	padding: 0;
-}
-
-ul, ol {
-    list-style: none;
-}
 
 @tan: #FAFAFA;
 @lightBlue: #E8FBFE;
@@ -33,15 +20,43 @@ ul, ol {
 .green-font { color: @lightGreen; }
 .dark-green-font { color: @hlGreen; }
 
-// styling
 .border-black { border: 1px solid black; }
 .shadowBottom { box-shadow: 0px 2px 2px -1px grey; }
 .grad1 { #gradient.radial(@lightBlue, @hlGreen); }
 
+.fixed {
+  position: fixed;  
+}
+
+body {
+	background: @lightBlue;
+	font-family: Arial, sans-serif;
+}
+
+body,html,h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
 #bill-meta {
    background: @tan; 
+   padding: .5em;
 }
 
 .bill {
   margin-bottom: .5em;
+}
+
+@media only screen and (min-width: 48em) {
+    .bill {
+      text-align: right;
+    }
+
+    #bill-meta {
+      position: fixed;
+    }
 }
