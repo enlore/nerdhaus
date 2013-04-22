@@ -21,9 +21,11 @@
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
   display: none;
+  font-size: 0.6em;
   position: absolute;
   padding-bottom: 4px;
-  width: 218px;
+  width: auto;
+  max-width: 400px;
 }
 .datepicker .nav {
   font-weight: bold;
@@ -86,7 +88,7 @@
   margin-left: 4px;
 }
 .datepicker .months .name {
-  width: 72px;
+  width: 88px;
   padding: 0;
 }
 .datepicker .years {
@@ -94,7 +96,7 @@
   margin-right: 4px;
 }
 .datepicker .years .name {
-  width: 36px;
+  width: 54px;
   padding: 0;
 }
 .datepicker .dow, .datepicker .days div {

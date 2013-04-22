@@ -44,11 +44,20 @@ ul, ol {
 
 #bill-meta {
    background: @tan; 
+   min-height: 800px;
    padding: .5em;
 }
 
 .bill {
   margin-bottom: .5em;
+}
+
+#guess-date-form {
+  display: none;
+}
+
+#date-guess-label {
+  font-size: 12px;
 }
 
 @media only screen and (min-width: 48em) {
@@ -58,5 +67,9 @@ ul, ol {
 
     #bill-meta {
       position: fixed;
+    }
+
+    #guess-date-form {
+      display: block;
     }
 }

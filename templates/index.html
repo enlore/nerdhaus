@@ -50,6 +50,24 @@
             {% endif %}
             {% endif %}
         <a href="/new" class="button">new bill</a>
+
+        <div class="columns large-12">
+            <form id="guess-date-form" method="POST" action="/guess_date">
+                <label for="date_guess" id="date-guess-label">What day to you think it is?</label>
+                <input type="text" id="date-guess" />
+            </form>
+            <script type="application/javascript">
+                $(document).ready(function() {
+                        $('#date-guess').datepicker();
+
+                        $('#date-input').bind('change', function() {
+                            var selectedDate = $(this).val();
+                            var prettyDate = new Date(selectedDate).format('fullDate');
+                            $('#date-text').html(prettyDate);
+                            });
+                        });
+            </script>
+        </div>
         </div>
     </div> <!-- END BILL META -->
 
