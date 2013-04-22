@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, g, redirect, url_for, flash
+from wtforms import Form, TextField, DateField, DecimalField, validators
 import sqlite3
 from bill import Bill
 from contextlib import closing
@@ -20,6 +21,16 @@ def init_db():
         with app.open_resource('schema/schema.sql') as schema:
             db.cursor().executescript(schema.read())
         db.commit()
+
+#class BillForm(Form):
+#    name = TextField(u'Name:', validators=[validate.required()])
+#    pay_to = TextField(u'Pay To:', validators=[validate.required()])
+#    due_date = DateField(u'Date Due:', validators=[validate.required()])
+#    due_amount = DecimalField(u'Amount Due:',places = 2)
+#    late_after_date = DateField(u'Late After:', validators=[validate.required()])
+#    late_amount = DecimalField(u'Late Amount:', places = 2)
+#    termination_date = DateField(u'Termination Date:', validator=[validate.required()])
+
 
 @app.before_request
 def before_request():
