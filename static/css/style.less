@@ -3,6 +3,7 @@
 
 @tan: #FAFAFA;
 @lightBlue: #E8FBFE;
+@bgBlue: #6DC6DD;
 @hlGreen: #BCF794;
 @lightGreen: #82C555;
 @darkGreen: #445544;
@@ -29,7 +30,7 @@
 }
 
 body {
-	background: @lightBlue;
+	background: @bgBlue;
 	font-family: Arial, sans-serif;
 }
 
@@ -44,12 +45,17 @@ ul, ol {
 
 #bill-meta {
    background: @tan; 
-   min-height: 800px;
    padding: .5em;
 }
 
 .bill {
   margin-bottom: .5em;
+  background: #1e1e1e;
+  color: #ebebeb;
+  padding: .6em;
+}
+
+#bills-list {
 }
 
 #guess-date-form {
@@ -67,6 +73,7 @@ ul, ol {
 
     #bill-meta {
       position: fixed;
+      min-height: 800px;
     }
 
     #guess-date-form {
