@@ -21,8 +21,6 @@
 .green-font { color: @lightGreen; }
 .dark-green-font { color: @hlGreen; }
 
-.border-black { border: 1px solid black; }
-.shadowBottom { box-shadow: 0px 2px 2px -1px grey; }
 .grad1 { #gradient.radial(@lightBlue, @hlGreen); }
 
 .fixed {
@@ -49,10 +47,14 @@ ul, ol {
 }
 
 .bill {
-  margin-bottom: .5em;
+  border-bottom: 1px dashed #ebebeb;
   background: #1e1e1e;
   color: #ebebeb;
   padding: .6em;
+}
+
+.bill:last-child {
+  border-bottom: none;
 }
 
 #bills-list {
