@@ -22,14 +22,14 @@ def init_db():
             db.cursor().executescript(schema.read())
         db.commit()
 
-#class BillForm(Form):
-#    name = TextField(u'Name:', validators=[validate.required()])
-#    pay_to = TextField(u'Pay To:', validators=[validate.required()])
-#    due_date = DateField(u'Date Due:', validators=[validate.required()])
-#    due_amount = DecimalField(u'Amount Due:',places = 2)
-#    late_after_date = DateField(u'Late After:', validators=[validate.required()])
-#    late_amount = DecimalField(u'Late Amount:', places = 2)
-#    termination_date = DateField(u'Termination Date:', validator=[validate.required()])
+class BillForm(Form):
+    name = TextField(u'Name:', [validators.required()])
+    pay_to = TextField(u'Pay To:',[validators.required()])
+    due_date = DateField(u'Date Due:',[validators.required()])
+    due_amount = DecimalField(u'Amount Due:',places = 2)
+    late_after_date = DateField(u'Late After:',[validators.required()])
+    late_amount = DecimalField(u'Late Amount:', places = 2)
+    termination_date = DateField(u'Termination Date:',[validators.required()])
 
 
 @app.before_request
@@ -114,7 +114,8 @@ def index():
 
 @app.route('/new', methods = ['GET'])
 def new_bill():
-    return render_template('new_bill.html')
+    form = BillForm()
+    return render_template('new_bill.html', form = form)
 
 @app.route('/create_bill', methods = ['POST'])
 def create_bill():
