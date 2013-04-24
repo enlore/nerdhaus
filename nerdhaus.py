@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, g, redirect, url_for, flash
-from wtforms import Form, TextField, DateField, DecimalField, validators
+from wtforms import Form, TextField, DateField, DecimalField, HiddenField, validators
 import sqlite3
 from bill import Bill
 from contextlib import closing
@@ -22,7 +22,19 @@ def init_db():
             db.cursor().executescript(schema.read())
         db.commit()
 
+class Bill(object):
+    def __init__(self, b_id, name, pay_to, due_date, due_amount, late_after_date, late_amount, termination_date):
+        self.b_id = b_id
+        self.name = name
+        self.pay_to = pay_to
+        self.due_date = due_date
+        self.due_amount = due_amount
+        self.late_after_date = late_after_date
+        self.late_amount = late_amount
+        self.termination_date = termination_date
+
 class BillForm(Form):
+    b_id = HiddenField()
     name = TextField(u'Name:', [validators.required()])
     pay_to = TextField(u'Pay To:',[validators.required()])
     due_date = DateField(u'Date Due:',[validators.required()])
@@ -39,7 +51,7 @@ def before_request():
 @app.teardown_request
 def teardown_request(exception):
     if hasattr(g, 'db'):
-        g.db.close()
+        g.db.close() 
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -135,6 +147,27 @@ def create_bill():
     g.db.commit()
 
     return redirect(url_for('index'))
+
+@app.route('/edit_bill/<int:bill_id>', methods = ['GET'])
+def edit_bill(bill_id):
+    sql = "SELECT * FROM bills WHERE id=?"
+    cur = g.db.execute(sql, (bill_id,))
+
+    row = cur.fetchone()
+    bill = Bill(
+            row[0],
+            row[1],
+            row[2],
+            row[3],
+            row[4],
+            row[5],
+            float(row[6]),
+            row[7]
+            )
+
+    app.logger.info(bill)
+    form = BillForm(obj = bill)
+    return render_template('edit_bill.html', form = form)
 
 @app.route('/delete/<int:bill_id>', methods = ['GET'])
 def delete(bill_id):

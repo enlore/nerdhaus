@@ -2,13 +2,14 @@
 {% block body %}
 <div class="row">
     <div class="columns large-6 large-centered">
-        <h1> Make a New Bill </h1>
+        <h1>Edit a Bill</h1>
     </div>
 </div>
 
 <div class="row">
     <div class="columns large-4 large-centered">
         <form id="new-bill-form" method="post" action="/create_bill">
+                {{ form.b_id() }}
                 {{ form.name.label }}
                 {{ form.name() }}
                 {{ form.pay_to.label }}
