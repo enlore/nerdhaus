@@ -133,15 +133,21 @@ def new_bill():
 def create_bill():
     sql = "INSERT INTO bills (name, pay_to, due_date, due_amount, late_amount," \
             + "late_after_date, termination_date) VALUES (?, ?, ?, ?, ?, ?, ?)"
+
+    def convert_date_string(datestring):
+        bits = datestring.split('/')
+        ints = []
+        for bit in bits:
+            ints.append(int(bit)) 
     
     g.db.execute(sql, [
             request.form['name'],
             request.form['pay_to'],
-            request.form['due_date'],
+            convert_date_string(request.form['due_date']),
             request.form['due_amount'],
             request.form['late_amount'],
-            request.form['late_after_date'],
-            request.form['termination_date'],
+            convert_date_string(request.form['late_after_date']),
+            convert_date_string(request.form['termination_date'])
         ])
 
     g.db.commit()
@@ -154,16 +160,21 @@ def edit_bill(bill_id):
     cur = g.db.execute(sql, (bill_id,))
 
     row = cur.fetchone()
+
+    app.logger.info(row)
+
     bill = Bill(
-            row[0],
-            row[1],
-            row[2],
-            row[3],
-            row[4],
-            row[5],
-            float(row[6]),
-            row[7]
+            row[0], # id 
+            row[1], # name
+            row[2], # pay_to
+            row[4], # due_date
+            row[3], # due_amount
+            row[5], # late_after_date
+            row[6], # late_amount
+            row[7]  # termination_date
             )
+    app.logger.info(row[4])
+    # def __init__(self, b_id, name, pay_to, due_date, due_amount, late_after_date, late_amount, termination_date):
 
     app.logger.info(bill)
     form = BillForm(obj = bill)
