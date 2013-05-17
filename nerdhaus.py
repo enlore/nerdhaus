@@ -10,9 +10,6 @@ app.secret_key = 'a;lskfdjaio;en lol dev key fas;lknev;soi8evnse'
 app.debug = True
 app.database = 'db/nerdhaus.db'
 
-def breakpoint():
-    assert app.debug == False
-
 def connect_db():
     return sqlite3.connect(app.database)
 
@@ -55,7 +52,7 @@ def teardown_request(exception):
 
 @app.route('/', methods = ['GET'])
 def index():
-    cur = g.db.execute('SELECT * from bills')
+    cur = g.db.execute('SELECT * FROM bills')
 
     # needs to be objects
     bills = [dict(
