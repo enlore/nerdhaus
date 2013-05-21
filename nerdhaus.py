@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, g, redirect, url_for, flash
-import bill
-from contextlib import closing
+from bill import Bill, BillForm
 import datetime
 from sqlalchemy import create_engine
 import db
