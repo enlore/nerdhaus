@@ -9,7 +9,6 @@ import db
 app = Flask(__name__)
 app.secret_key = 'a;lskfdjaio;en lol dev key fas;lknev;soi8evnse'
 app.debug = True
-app.database = 'db/nerdhaus.db'
 
 engine = create_engine('sqlite:///:memory:', echo=True)
 Session = sessionmaker(bind=engine)
