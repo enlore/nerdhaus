@@ -2,12 +2,15 @@ from flask import Flask, request, render_template, g, redirect, url_for, flash
 from bill import Bill, BillForm
 import datetime
 from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
 import db
 
 app = Flask(__name__)
 app.secret_key = 'a;lskfdjaio;en lol dev key fas;lknev;soi8evnse'
 app.debug = True
 app.database = 'db/nerdhaus.db'
+
+engine = create_engine('sqlite:///:memory:', echo=True)
 
 
 @app.route('/', methods = ['GET'])
