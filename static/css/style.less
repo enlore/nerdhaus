@@ -23,10 +23,6 @@
 
 .grad1 { #gradient.radial(@lightBlue, @hlGreen); }
 
-.fixed {
-  position: fixed;  
-}
-
 .align-right {
   text-align: right;
 }
@@ -41,35 +37,34 @@ body,html,h1,h2,h3,h4,h5,h6 {
 	padding: 0;
 }
 
-ul, ol {
+ul, 
+ol {
     list-style: none;
 }
 
 #bill-meta {
-   background: @tan; 
-   padding: .5em;
+    background: @tan; 
+    padding: .5em;
+    z-index: 10;
+    h1, h5 {
+        text-align: center;
+    }
+    a.button {
+        margin: 0 auto;
+        display: block;
+        max-width: 12em;
+    }
 }
 
 .bill {
   border-bottom: 1px dashed #ebebeb;
   background: #1e1e1e;
   color: #ebebeb;
-  padding: .6em;
+  padding: 1em;
 }
 
 .bill:last-child {
   border-bottom: none;
-}
-
-#bills-list {
-}
-
-#guess-date-form {
-  display: none;
-}
-
-#date-guess-label {
-  font-size: 12px;
 }
 
 #new-bill-form {
@@ -89,9 +84,14 @@ ul, ol {
       text-align: right;
     }
 
+    #bills-wrapper {
+        padding-right: 0;
+    }
+
     #bill-meta {
       position: fixed;
-      min-height: 800px;
+      height: 100%;
+      margin-left: -1em;
     }
 
     #guess-date-form {
