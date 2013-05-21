@@ -26,7 +26,7 @@ class Bill(Base):
         self.date_termination   = date_termination
 
     def __repr__(self):
-        return "<Bill ('%s', '%s', '%s')>" % (self.name, self.pay_to, self.amount_due)
+        return "<Bill ('%s', '%s', '%s', '%s')>" % (self.name, self.pay_to, self.amount_due, self.date_due)
 
 
 class BillForm(Form):
