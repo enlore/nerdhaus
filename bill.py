@@ -30,11 +30,10 @@ class Bill(Base):
 
 
 class BillForm(Form):
-    b_id = HiddenField()
-    name = TextField(u'Name:', [validators.required()])
-    pay_to = TextField(u'Pay To:',[validators.required()])
-    due_date = DateField(u'Date Due:',[validators.required()])
-    due_amount = DecimalField(u'Amount Due:',places = 2)
-    late_after_date = DateField(u'Late After:',[validators.required()])
-    late_amount = DecimalField(u'Late Amount:', places = 2)
-    termination_date = DateField(u'Termination Date:',[validators.required()])
+    name                = TextField(u'Name:', [validators.required()])
+    pay_to              = TextField(u'Pay To:',[validators.required()])
+    date_due            = DateField(u'Date Due:',[validators.required()])
+    amount_due          = DecimalField(u'Amount Due:',places = 2)
+    date_late           = DateField(u'Late After:',[validators.required()])
+    amount_late         = DecimalField(u'Late Amount:', places = 2)
+    date_termination    = DateField(u'Termination Date:',[validators.required()])

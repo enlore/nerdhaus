@@ -9,7 +9,7 @@
 
         <div class="columns large-12">
             <form id="guess-date-form" method="POST" action="/guess_date">
-                <label for="date_guess" id="date-guess-label">What day to you think it is?</label>
+                <label for="date_guess" id="date-guess-label">What day do you think it is?</label>
                 <input type="text" id="date-guess" />
             </form>
             <script type="application/javascript">
@@ -37,12 +37,12 @@
                 <li>Pay To: {{ bill.pay_to }} </li>
 
                 <li>Amount Due: <span class="dark-green-font"> 
-                    {{ bill.amount_due }} </span> </li>
+                    {{ bill.amount_due / 100 }} </span> </li>
 
                 <li>Date Due: {{ bill.date_due }} </li>
 
                 <li>Late Amount: <span class="orange-font"> 
-                    {{ bill.amount_late }} </span></li>
+                    {{ bill.amount_late / 100 }} </span></li>
 
                 <li>Late After Date: {{ bill.date_late }} </li>
 
@@ -50,7 +50,7 @@
                     {{ bill.date_termination }} </span> </li>
 
                 <li>Per Roommate Split: <span class="green-font">
-                    {{ bill.split }}</span> </li>
+                    {{ bill.amount_due / 100 / 4 }}</span> </li>
 
                 <li>
                   <a href="/delete/{{bill.id}}">delete</a> 

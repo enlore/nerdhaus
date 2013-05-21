@@ -1,17 +1,34 @@
 from flask import Flask, request, render_template, g, redirect, url_for, flash
-from bill import Bill, BillForm
-import datetime
+from bill import Base, Bill, BillForm
+from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import db
 
 app = Flask(__name__)
 app.secret_key = 'a;lskfdjaio;en lol dev key fas;lknev;soi8evnse'
 app.debug = True
 
-engine = create_engine('sqlite:///:memory:', echo=True)
+engine = create_engine('sqlite:///db/nerdhaus.db', echo=True)
 Session = sessionmaker(bind=engine)
+
+def create_table():
+    Base.metadata.create_all(engine)
+
+def string_to_date(datestring):
+    if '/' in datestring:
+        sep = '/'
+    elif '-' in datestring:
+        sep = '-'
+    y, m, d = datestring.split(sep)
+    return date(int(y), int(m), int(d))
+
+def dollars_to_cents(amount):
+    d = float(amount)
+    return d * 100
+
+if app.debug:
+    create_table()
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -30,11 +47,11 @@ def create_bill():
     bill = Bill(
             form['name'],
             form['pay_to'],
-            form['amount_due'],
-            date(form['date_due'].split('/')),
-            form['amount_late'],
-            date(form['date_late'].split('/')),
-            date(form['date_termination'].split('/'))
+            dollars_to_cents(form['amount_due']),
+            string_to_date(form['date_due']),
+            dollars_to_cents(form['amount_late']),
+            string_to_date(form['date_late']),
+            string_to_date(form['date_termination']),
             )
 
     session = Session()
@@ -45,6 +62,7 @@ def create_bill():
 
 @app.route('/edit_bill/<int:bill_id>', methods = ['GET'])
 def edit_bill(bill_id):
+    form = BillForm()
     return render_template('edit_bill.html', form = form)
 
 @app.route('/update_bill', methods = ['POST'])
@@ -53,7 +71,11 @@ def update_bill():
 
 @app.route('/delete/<int:bill_id>', methods = ['GET'])
 def delete(bill_id):
-    return 'delete bill uri'
+    s = Session()
+    bill = s.query(Bill).filter_by(id=bill_id).first()
+    s.delete(bill)
+    s.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run()
