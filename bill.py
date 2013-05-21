@@ -1,15 +1,33 @@
 from wtforms import Form, TextField, DateField, DecimalField, HiddenField, validators
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Date
 
-class Bill(object):
-    def __init__(self, b_id, name, pay_to, due_date, due_amount, late_after_date, late_amount, termination_date):
-        self.b_id = b_id
-        self.name = name
-        self.pay_to = pay_to
-        self.due_date = due_date
-        self.due_amount = due_amount
-        self.late_after_date = late_after_date
-        self.late_amount = late_amount
-        self.termination_date = termination_date
+Base = declarative_base()
+
+class Bill(Base):
+    __tablename__ = 'bills'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    pay_to = Column(String)
+    amount_due = Column(Integer)
+    date_due = Column(Date)
+    amount_late = Column(Integer)
+    date_late = Column(Date)
+    date_termination = Column(Date)
+
+    def __init__(self, name, pay_to, amount_due, date_due, amount_late, date_late, date_termination):
+        self.name               = name
+        self.pay_to             = pay_to
+        self.amount_due         = amount_due
+        self.date_due           = date_due
+        self.amount_late        = amount_late
+        self.date_late          = date_late
+        self.date_termination   = date_termination
+
+    def __repr__(self):
+        return "<Bill ('%s', '%s', '%s')>" % (self.name, self.pay_to, self.amount_due)
+
 
 class BillForm(Form):
     b_id = HiddenField()
