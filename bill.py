@@ -1,4 +1,4 @@
-from wtforms import Form, TextField, DateField, DecimalField, HiddenField, validators
+from wtforms import Form, TextField, DateField, IntegerField, HiddenField, validators
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date
 
@@ -30,10 +30,11 @@ class Bill(Base):
 
 
 class BillForm(Form):
+    id                  = HiddenField()
     name                = TextField(u'Name:', [validators.required()])
     pay_to              = TextField(u'Pay To:',[validators.required()])
     date_due            = DateField(u'Date Due:',[validators.required()])
-    amount_due          = DecimalField(u'Amount Due:',places = 2)
+    amount_due          = IntegerField(u'Amount Due:', [validators.required()])
     date_late           = DateField(u'Late After:',[validators.required()])
-    amount_late         = DecimalField(u'Late Amount:', places = 2)
+    amount_late         = IntegerField(u'Late Amount:', [validators.required()])
     date_termination    = DateField(u'Termination Date:',[validators.required()])
