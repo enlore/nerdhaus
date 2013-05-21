@@ -5,27 +5,6 @@
         <div id="bill-meta">
         <h1>HiveMind</h1>
         <h5>Welcome to Haus Central</h5>
-            {% if bill_meta %}
-            <!-- NEXT DUE -->
-            <p id="next-bill-due" class="orange-font"> nearest due bill: <br />
-            {{ bill_meta['next_due_name'] }} on {{ bill_meta['next_due'] }} </p>
-
-            <!-- LATE LIST -->
-            {% if bill_meta['late_list'] %}
-            <p id="late-bills" > late bills: </p>
-            <ul>
-                {% for late_bill in bill_meta['late_list'] %}
-                <li class="red-font"> {{ late_bill }} </li>    
-                {% endfor %}
-            </ul>
-            {% endif %}
-
-            <!-- NEXT TERMINATED -->
-            {% if bill_meta['next_term'] %}
-            <p> next terminated bill: <br />
-            {{ bill_meta['next_term'] }} </p>
-            {% endif %}
-            {% endif %}
         <a href="/new" class="button">new bill</a>
 
         <div class="columns large-12">
@@ -58,17 +37,17 @@
                 <li>Pay To: {{ bill.pay_to }} </li>
 
                 <li>Amount Due: <span class="dark-green-font"> 
-                    {{ bill.due_amount }} </span> </li>
+                    {{ bill.amount_due }} </span> </li>
 
-                <li>Date Due: {{ bill.due_date }} </li>
+                <li>Date Due: {{ bill.date_due }} </li>
 
                 <li>Late Amount: <span class="orange-font"> 
-                    {{ bill.late_amount }} </span></li>
+                    {{ bill.amount_late }} </span></li>
 
-                <li>Late After Date: {{ bill.late_after_date }} </li>
+                <li>Late After Date: {{ bill.date_late }} </li>
 
                 <li>Termination Date: <span class="red-font">
-                    {{ bill.termination_date }} </span> </li>
+                    {{ bill.date_termination }} </span> </li>
 
                 <li>Per Roommate Split: <span class="green-font">
                     {{ bill.split }}</span> </li>
