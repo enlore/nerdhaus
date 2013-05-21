@@ -62,7 +62,9 @@ def create_bill():
 
 @app.route('/edit_bill/<int:bill_id>', methods = ['GET'])
 def edit_bill(bill_id):
-    form = BillForm()
+    s = Session()
+    bill = s.query(Bill).filter_by(id=bill_id).first()
+    form = BillForm(obj=Bill)
     return render_template('edit_bill.html', form = form)
 
 @app.route('/update_bill', methods = ['POST'])
