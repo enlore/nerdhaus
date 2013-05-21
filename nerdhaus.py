@@ -3,6 +3,7 @@ from bill import Bill, BillForm
 import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 import db
 
 app = Flask(__name__)
@@ -11,7 +12,7 @@ app.debug = True
 app.database = 'db/nerdhaus.db'
 
 engine = create_engine('sqlite:///:memory:', echo=True)
-
+Session = sessionmaker(bind=engine)
 
 @app.route('/', methods = ['GET'])
 def index():
