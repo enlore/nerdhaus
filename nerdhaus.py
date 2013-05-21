@@ -15,7 +15,9 @@ Session = sessionmaker(bind=engine)
 
 @app.route('/', methods = ['GET'])
 def index():
-    return 'index page bro'
+    s = Session()
+    bills = s.query(Bill).order_by(Bill.date_due)
+    return render_template('index.html', bills = bills)
 
 @app.route('/new', methods = ['GET'])
 def new_bill():
@@ -24,6 +26,21 @@ def new_bill():
 
 @app.route('/create_bill', methods = ['POST'])
 def create_bill():
+    form = request.form
+    bill = Bill(
+            form['name'],
+            form['pay_to'],
+            form['amount_due'],
+            date(form['date_due'].split('/')),
+            form['amount_late'],
+            date(form['date_late'].split('/')),
+            date(form['date_termination'].split('/'))
+            )
+
+    session = Session()
+    session.add(bill)
+    session.commit()
+
     return redirect(url_for('index'))
 
 @app.route('/edit_bill/<int:bill_id>', methods = ['GET'])
