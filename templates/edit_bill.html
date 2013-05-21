@@ -9,7 +9,7 @@
 <div class="row">
     <div class="columns large-4 large-centered">
         <form id="new-bill-form" method="post" action="/create_bill">
-                {{ form.b_id() }}
+                {{ form.id() }}
                 
                 {{ form.name.label }}
                 {{ form.name() }}
@@ -17,20 +17,20 @@
                 {{ form.pay_to.label }}
                 {{ form.pay_to() }}
                 
-                {{ form.due_date.label }}
-                {{ form.due_date() }}
+                {{ form.amount_due.label }}
+                {{ form.amount_due() }}
+
+                {{ form.date_due.label }}
+                {{ form.date_due() }}
                 
-                {{ form.due_amount.label }}
-                {{ form.due_amount() }}
+                {{ form.amount_late.label }}
+                {{ form.amount_late() }}
                 
-                {{ form.late_after_date.label }}
-                {{ form.late_after_date() }}
+                {{ form.date_late.label }}
+                {{ form.date_late() }}
                 
-                {{ form.late_amount.label }}
-                {{ form.late_amount() }}
-                
-                {{ form.termination_date.label }}
-                {{ form.termination_date() }}
+                {{ form.date_termination.label }}
+                {{ form.date_termination() }}
                 
                 <input type="submit" value="gogogo" />
         </form>
