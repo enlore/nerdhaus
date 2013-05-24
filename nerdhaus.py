@@ -4,14 +4,16 @@ from datetime import date
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from logging import warning
 
 app = Flask(__name__)
 app.secret_key = 'a;lskfdjaio;en lol dev key fas;lknev;soi8evnse'
 app.debug = True
 
-engine = create_engine('sqlite:///db/nerdhaus.db', echo=True)
+engine = create_engine('sqlite:///db/nerdhaus.db', echo=False)
 Session = sessionmaker(bind=engine)
 
+# helpers
 def create_table():
     Base.metadata.create_all(engine)
 
@@ -27,8 +29,11 @@ def dollars_to_cents(amount):
     d = float(amount)
     return d * 100
 
-if app.debug:
-    create_table()
+
+# template filters
+@app.template_filter('format_currency')
+def format_currency(cents):
+    return "${:,.2f}".format(cents)
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -48,9 +53,9 @@ def create_bill():
     bill = Bill(
             form['name'],
             form['pay_to'],
-            dollars_to_cents(form['amount_due']),
+            form['amount_due'],
             string_to_date(form['date_due']),
-            dollars_to_cents(form['amount_late']),
+            form['amount_late'],
             string_to_date(form['date_late']),
             string_to_date(form['date_termination']),
             )
@@ -63,6 +68,7 @@ def create_bill():
 
 @app.route('/edit_bill/<int:bill_id>', methods = ['GET', 'POST'])
 def edit_bill(bill_id):
+    warning('editing bill with id ' + str(bill_id))
     s = Session()
     bill = s.query(Bill).filter_by(id=bill_id).first()
     form = BillForm(request.form, obj=bill)
@@ -72,6 +78,9 @@ def edit_bill(bill_id):
         s.add(bill)
         s.commit()
         return redirect(url_for('index'))
+
+    else:
+        warning(request.form)
 
     return render_template('edit_bill.html', form = form)
 
