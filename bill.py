@@ -16,6 +16,10 @@ class Bill(Base):
     date_late = Column(Date)
     date_termination = Column(Date)
 
+    # @param parties integer number of people splitting the bill
+    def calculate_split(self, parties):
+        return self.amount_due / parties 
+
     def __init__(self, name, pay_to, amount_due, date_due, amount_late, date_late, date_termination):
         self.name               = name
         self.pay_to             = pay_to
