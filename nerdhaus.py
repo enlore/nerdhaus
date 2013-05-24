@@ -34,6 +34,7 @@ if app.debug:
 def index():
     s = Session()
     bills = s.query(Bill).order_by(Bill.date_due)
+
     return render_template('index.html', bills = bills)
 
 @app.route('/new', methods = ['GET'])
@@ -60,11 +61,18 @@ def create_bill():
 
     return redirect(url_for('index'))
 
-@app.route('/edit_bill/<int:bill_id>', methods = ['GET'])
+@app.route('/edit_bill/<int:bill_id>', methods = ['GET', 'POST'])
 def edit_bill(bill_id):
     s = Session()
     bill = s.query(Bill).filter_by(id=bill_id).first()
-    form = BillForm(obj=Bill)
+    form = BillForm(request.form, obj=bill)
+
+    if request.method == 'POST' and form.validate():
+        form.populate_obj(bill)
+        s.add(bill)
+        s.commit()
+        return redirect(url_for('index'))
+
     return render_template('edit_bill.html', form = form)
 
 @app.route('/update_bill', methods = ['POST'])
