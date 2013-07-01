@@ -30,7 +30,8 @@ body {
 }
 
 .outer > aside .content {
-    margin-top: 10em; 
+    background: rgba(0, 0, 0, 0.5);
+    margin: 10em auto 0 auto;
     padding: 1em;
 }
 
