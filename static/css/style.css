@@ -39,21 +39,51 @@ body {
     
 }
 
-.outer section {
+.outer > aside nav {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    margin: 2em auto 0 auto;
+    width: 70%;
+}
+
+.outer > aside nav:hover {
+    border-radius: 3px;
+}
+
+.outer > aside nav ul li {
+    list-style: none;
+}
+
+.outer > aside nav ul li a {
+    color: #ccc;
+    display: block;
+    font-size: 18px;
+    padding: 0.9em;
+    text-decoration: none;
+}
+
+.outer > aside nav ul li a:hover {
+    background: #ccc;
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.outer section.content {
     float: right;
+    margin-top: 2em;
     width: 50%;
 }
 
-.outer section article {
+.outer section.content article {
     margin-bottom: 3em;
     width: 70%;
 }
 
-.outer section article p {
+.outer section.content article p {
     margin-bottom: 1em;
 }
 
-.outer section article span.title.date {
+.outer section.content article span.title.date {
     float: right;
     font-size: 14px;
     line-height: 24px;
