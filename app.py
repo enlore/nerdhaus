@@ -20,7 +20,7 @@ def not_found(error):
     ]
 
     gif = random.choice(gifs)
-    return render_template('404.html', gif=gif)
+    return render_template('errors/404.html', gif=gif)
 
 @app.route('/', methods = ['GET'])
 def index():
