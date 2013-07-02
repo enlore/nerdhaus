@@ -83,7 +83,7 @@ section.content article p {
     margin-bottom: 1em;
 }
 
-section.content article span.title.date {
+section.content article span.date {
     float: right;
     font-size: 14px;
     line-height: 24px;
