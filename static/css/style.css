@@ -48,3 +48,13 @@ body {
     margin-bottom: 3em;
     width: 70%;
 }
+
+.outer section article p {
+    margin-bottom: 1em;
+}
+
+.outer section article span.title.date {
+    float: right;
+    font-size: 14px;
+    line-height: 24px;
+}
