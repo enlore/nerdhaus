@@ -19,7 +19,7 @@ body {
     min-height: 100%;
 }
 
-.outer > aside {
+.wrap > aside {
     background: url('http://i4.mirror.co.uk/incoming/article1130524.ece/ALTERNATES/s2197/Russian%27s%20argue%20over%20a%20traffic%20incident-1130524') 0 0;
     background-size: cover;
     border-right: 1px solid #333;
@@ -29,32 +29,32 @@ body {
     width: 30%;
 }
 
-.outer > aside .content {
+.wrap > aside .content {
     background: rgba(0, 0, 0, 0.5);
     margin: 10em auto 0 auto;
     padding: 1em;
 }
 
-.outer > aside .content h1 {
+.wrap > aside .content h1 {
     
 }
 
-.outer > aside nav {
+.wrap > aside nav {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
     margin: 2em auto 0 auto;
     width: 70%;
 }
 
-.outer > aside nav:hover {
+.wrap > aside nav:hover {
     border-radius: 3px;
 }
 
-.outer > aside nav ul li {
+.wrap > aside nav ul li {
     list-style: none;
 }
 
-.outer > aside nav ul li a {
+.wrap > aside nav ul li a {
     color: #ccc;
     display: block;
     font-size: 18px;
@@ -62,28 +62,28 @@ body {
     text-decoration: none;
 }
 
-.outer > aside nav ul li a:hover {
+.wrap > aside nav ul li a:hover {
     background: #ccc;
     border-radius: 3px;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.outer section.content {
+section.content {
     float: right;
     margin-top: 2em;
     width: 50%;
 }
 
-.outer section.content article {
+section.content article {
     margin-bottom: 3em;
     width: 70%;
 }
 
-.outer section.content article p {
+section.content article p {
     margin-bottom: 1em;
 }
 
-.outer section.content article span.title.date {
+section.content article span.title.date {
     float: right;
     font-size: 14px;
     line-height: 24px;
