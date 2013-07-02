@@ -29,7 +29,7 @@ def index():
 @app.route('/pages/<page>')
 def show(page):
     try:
-        return render_template('%s.html' % page)
+        return render_template('pages/%s.html' % page)
     except:
         abort(404)
 
