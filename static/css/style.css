@@ -35,8 +35,9 @@ body {
     padding: 1em;
 }
 
-.wrap > aside .content h1 {
-    
+.wrap > aside .content a {
+    color: #ddd;
+    text-decoration: none; 
 }
 
 .wrap > aside nav {
