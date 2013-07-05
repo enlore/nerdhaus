@@ -7,5 +7,7 @@ setup(
        packages=['nerdhaus'],
        include_package_data=True,
        zip_safe=False,
-       install_requir=['Flask']
+       install_requires=[
+           'Flask'
+           ]
         )

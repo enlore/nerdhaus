@@ -1,0 +1,2 @@
+recursive-include nerdhaus/static *
+recursive-include nerdhaus/templates *
