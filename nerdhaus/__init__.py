@@ -5,8 +5,6 @@ app = Flask(__name__)
 
 app.secret_key = 'a;lskfdjaio;enfas;lknev;soi8evnse'
 
-app.debug = True
-
 @app.errorhandler(404)
 def not_found(error):
     gifs = [
@@ -22,16 +20,4 @@ def not_found(error):
     gif = random.choice(gifs)
     return render_template('errors/404.html', gif=gif)
 
-@app.route('/', methods = ['GET'])
-def index():
-    return render_template('index.html')
-
-@app.route('/pages/<page>')
-def show(page):
-    try:
-        return render_template('pages/%s.html' % page)
-    except:
-        abort(404)
-
-if __name__ == '__main__':
-    app.run()
+import nerdhaus.routes
