@@ -19,6 +19,14 @@ body {
     min-height: 100%;
 }
 
+pre {
+
+}
+
+pre.inline {
+    display: inline;
+}
+
 .wrap > aside {
     background: url('http://i4.mirror.co.uk/incoming/article1130524.ece/ALTERNATES/s2197/Russian%27s%20argue%20over%20a%20traffic%20incident-1130524') 0 0;
     background-size: cover;
