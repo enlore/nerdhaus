@@ -6,7 +6,7 @@
 
     <p>firing up a running web app in flask is cake.  import the Flask class, instantiate an application object from it, define a route and view function, and call <span class="inline code">run()</span> on your app object.</p>
     <pre class="code">
-    from flask import Flask, render_template, abort
+    from flask import Flask, render_template
 
     app = Flask(__name__)
 
@@ -17,6 +17,10 @@
     if __name__ == '__main__':
         app.run()
     </pre>
+    <p>
+        easy peasy.  this will serve the template called <span class="inline code">
+            index.html</span> at the root of the domain where the app is hangning out.
+    </p>
 </article>
 <article>
     <h3>fab fun times<span class="date">7/6/2013</span></h3>
