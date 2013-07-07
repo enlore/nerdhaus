@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
 {% block body %}
 <article>
+    <h3>stupid simple flask app<span class="date">7/6/2013</span></h3>
+    <p>consider <a href="http://flask.pocoo.org">flask</a>, a delightful web application framework, commonly reffered to a micro framework.</p>
+
+    <p>firing up a running web app in flask is cake.  import the Flask class, instantiate an application object from it, define a route and view function, and call <span class="inline code">run()</span> on your app object.</p>
+    <pre class="code">
+    from flask import Flask, render_template, abort
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    if __name__ == '__main__':
+        app.run()
+    </pre>
+</article>
+<article>
     <h3>fab fun times<span class="date">7/6/2013</span></h3>
     <p>so as i continue on my magical journey to production quality 
     <a href="http://flask.pocoo.org">flask</a>, i discover my deep desire 
@@ -9,7 +27,7 @@
 
     <p>working with fabric, after some intial hiccups,  is actually pretty 
     delightful. it's a library created to facilitate interaction with remote 
-    systems via ssh.  it picks up your <span class="inline">.ssh/config</span> 
+    systems via ssh.  it picks up your <span class="inline code">.ssh/config</span> 
     and uses it right out of the box, and comes equipped with a simple 
     vocabulary for moving around the filesystem and working with files.</p>
 

@@ -19,8 +19,21 @@ body {
     min-height: 100%;
 }
 
-span.inline {
+pre.code {
+    margin-bottom: 1em;
+}
+
+pre.code,
+span.code {
     background: #fff;
+    border-radius: 2px;
+    color: #555;
+    font-family: Consolas, monospace;
+    font-size: 0.9em;
+    padding: 3px 0px 3px 0px;
+}
+
+span.code.inline {
     display: inline;
     padding: 1px 3px 1px 3px;
 }
