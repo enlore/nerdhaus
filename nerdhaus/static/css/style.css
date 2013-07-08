@@ -101,11 +101,16 @@ section.content article {
     width: 70%;
 }
 
+section.content article h3 {
+    color: #C24E55;
+}
+
 section.content article p {
     margin-bottom: 1em;
 }
 
 section.content article span.date {
+    color: #000;
     float: right;
     font-size: 14px;
     line-height: 24px;
