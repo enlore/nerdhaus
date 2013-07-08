@@ -22,6 +22,7 @@ body {
 
 a {
     color: #5F8755;
+    outline: 0;
 }
 
 pre.code {
@@ -87,11 +88,21 @@ span.code.inline {
     text-decoration: none;
 }
 
-
+.wrap > aside nav ul li a:focus,
 .wrap > aside nav ul li a:hover {
-    background: #ccc;
+    background: #5F8755;
     border-radius: 3px;
-    color: rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #4F7046;
+    border-top: 1px solid #73A565;
+    color: #fff;
+    font-weight: bold;
+}
+
+.wrap > aside nav ul li a:active {
+    background: #5F8755;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 0px 2px #4F7046 inset;
 }
 
 section.content {
