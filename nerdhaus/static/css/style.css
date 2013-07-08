@@ -20,6 +20,14 @@ body {
     min-height: 100%;
 }
 
+::selection {
+    background: #5F8755;
+}
+
+::-moz-selection {
+    background: #5F8755;
+}
+
 a {
     color: #5F8755;
     outline: 0;
