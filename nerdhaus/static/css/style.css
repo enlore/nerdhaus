@@ -13,6 +13,7 @@ html {
 
 body {
     background: #eee;
+    background: url('/static/img/content-bg.jpg') 0 0 repeat;
     font-size: 16px;
     font-family: Helvetica, sans-serif;
     height: 100%;
@@ -81,6 +82,7 @@ span.code.inline {
     padding: 0.9em;
     text-decoration: none;
 }
+
 
 .wrap > aside nav ul li a:hover {
     background: #ccc;
