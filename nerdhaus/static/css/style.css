@@ -20,6 +20,10 @@ body {
     min-height: 100%;
 }
 
+a {
+    color: #5F8755;
+}
+
 pre.code {
     margin-bottom: 1em;
 }
