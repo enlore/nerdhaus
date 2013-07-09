@@ -3,6 +3,7 @@
     <head>
         <title>{% block title %}NerdHaus{% endblock %}</title>
         <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/pojoaque.css">
     </head>
     <body>
         <div class="wrap">
@@ -32,6 +33,10 @@
             {% block footer %}
             {% endblock %}
         </div>
+        <script src="/static/js/vendor/highlight.pack.js"></script>
+        <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+        </script>
     </body>
 </html>
 

@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block body %}
 <article>
+
+</article>
+<article>
     <h3>this is your brain, organized<span class="date">7/7/2013</span></h3>
     <p> i don't know about you, but i am seriously scatterbrained. </p>
     <p> to be fair, i'm old school add, diagnosed in the early nineties (second grade, maybe?), and not just a spaz. </p>
@@ -29,7 +32,7 @@
     <h3>stupid simple flask app<span class="date">7/6/2013</span></h3>
     <p>consider <a href="http://flask.pocoo.org">flask</a>, a delightful web application framework, commonly referred to as a micro framework.</p>
     <p>firing up a running web app in flask is cake.  import the Flask class, instantiate an application object from it, define a route and view function, and call <span class="inline code">run()</span> on your app object.</p>
-    <pre class="code">
+    <pre class="code"><code>
     from flask import Flask, render_template
 
     app = Flask(__name__)
@@ -40,7 +43,7 @@
 
     if __name__ == '__main__':
         app.run()
-    </pre>
+    </code></pre>
     <p>
         easy peasy.  this will serve the template called <span class="inline code">
             index.html</span> at the root ('<span class="inline code">/</span>') of the domain where the app is hanging out.
