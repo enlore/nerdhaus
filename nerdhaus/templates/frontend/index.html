@@ -1,0 +1,21 @@
+{% extends "layouts/layout.html" %}
+{% block body %}
+<header>
+    <nav>
+        <ul>
+            <a href="/"><li>Home</li></a>
+            <a href="/portfolio"><li>Portfolio</li></a>
+            <a href="/blog"><li>Blog</li></a>
+            <a href="/blag"><li>Blag</li></a>
+            <a href="/shows"><li>Shows</li></a>
+        </ul>
+    </nav>
+</header>
+
+    <section class="grid">
+        <a class="grid-box top" href="/portfolio"><h4>look at my</h4><h1>PORTFOLIO</h1></a>
+        <a class="grid-box mid blog" href="/blog"><h4>listen to me talk</h4><h1>BLOG</h1></a>
+        <a class="grid-box mid blag" href="/blag"><h4>tell us how it is</h4><h1>BLAG</h1></a>
+        <a class="grid-box bottom" href="/shows"><h4>check out our</h4><h1>SHOWS</h1></a>
+    </section>
+{% endblock %}
