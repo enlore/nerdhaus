@@ -13,6 +13,9 @@ def blog_index():
 def blag_index():
     return render_template('blag/index.html')
 
+@app.route('/shows/', methods=['GET'])
+def shows_index():
+    return render_template('shows/index.html')
 
 @app.route('/portfolio/', methods=['GET','POST'])
 def portfolio_index():
