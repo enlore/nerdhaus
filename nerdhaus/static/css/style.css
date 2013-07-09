@@ -63,7 +63,9 @@ span.code.inline {
 }
 
 .wrap > aside .content {
-    background: rgba(0, 0, 0, 0.5);
+    background: #C24E55;
+    border-top: 1px solid #F46169;
+    border-bottom: 2px solid #9B3F44;
     margin: 10em auto 0 auto;
     padding: 1em;
 }
