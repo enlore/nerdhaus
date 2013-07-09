@@ -107,6 +107,15 @@ header nav ul a {
     padding: 1em;
 }
 
+.wrap > aside .content a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.wrap > aside .content strong {
+    color: #fff;
+}
+
 .wrap > aside nav {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
@@ -197,6 +206,11 @@ section.grid h4 {
     font-size: 24px;
     margin: 4em auto 0 auto;
     width: 40%;
+}
+
+section.grid h1:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: #000;
 }
 
 section.grid a.mid h4 {
