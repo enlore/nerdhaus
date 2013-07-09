@@ -9,6 +9,11 @@ def index():
 def blog_index():
     return render_template('blog/index.html')
 
+@app.route('/blag/', methods=['GET'])
+def blag_index():
+    return render_template('blag/index.html')
+
+
 @app.route('/portfolio/', methods=['GET','POST'])
 def portfolio_index():
     return render_template('portfolio.html')
