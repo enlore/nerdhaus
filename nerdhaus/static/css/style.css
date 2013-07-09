@@ -97,10 +97,13 @@ span.code.inline {
 }
 
 .wrap > aside nav ul li a {
+    border-bottom: 2px solid transparent;
+    border-top: 1px solid transparent;
     color: #ccc;
     display: block;
     font-size: 18px;
-    padding: 0.9em;
+    padding: 0.9em 1.5em 0.9em 0.9em;
+    text-align: right;
     text-decoration: none;
 }
 
