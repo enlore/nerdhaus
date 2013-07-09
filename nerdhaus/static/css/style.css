@@ -152,24 +152,29 @@ header nav ul a {
 
 section.content {
     float: right;
-    margin-top: 2em;
-    width: 50%;
+    width: 70%;
 }
 
-section.content article {
+section.blog {
+    float: right;
+    margin-top: 2em;
+    width: 70%;
+}
+
+section.blog article {
     margin-bottom: 3em;
     width: 70%;
 }
 
-section.content article h3 {
+section.blog article h3 {
     color: #C24E55;
 }
 
-section.content article p {
+section.blog article p {
     margin-bottom: 1em;
 }
 
-section.content article span.date {
+section.blog article span.date {
     color: #000;
     float: right;
     font-size: 14px;
@@ -177,18 +182,25 @@ section.content article span.date {
 }
 
 section.grid {
-    float: right;
     margin-top: 4em;
-    width: 70%;
 }
 
 section.grid h1 {
-    font-size: 36px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 46px;
+    margin: 0 auto 0 auto;
+    width: 50%;
 }
 
 section.grid h4 {
+    background: rgba(0, 0, 0, 0.7);
     font-size: 24px;
-    line-height: 1em;
+    margin: 4em auto 0 auto;
+    width: 40%;
+}
+
+section.grid a.mid h4 {
+    margin: 2em auto 0 auto;
 }
 
 section.grid a.grid-box {
@@ -207,13 +219,11 @@ section.grid a.top {
     background: url('/static/img/breaking-rocks.jpg') no-repeat 0 ;
     background-size: cover;
     height: 18em;
-    line-height: 18em;
 }
 
 section.grid a.mid {
     float: left;
     height: 12em;
-    line-height: 12em;
     width: 50%;
 }
 
@@ -223,7 +233,6 @@ section.grid a.bottom {
     border-bottom: 1px solid #555;
     clear: both;
     height: 18em;
-    line-height: 18em;
 }
 
 section.grid a.blog {

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}NerdHaus{% endblock %}</title>
+        <title>{% block title %}NerdHaus - Culture and Design in Clarksville{% endblock %}</title>
+        <meta name="description" content="">
         <link rel="stylesheet" href="/static/css/style.css">
         <link rel="stylesheet" href="/static/css/hljs/magula.css">
     </head>
@@ -34,8 +35,10 @@
                 {% endblock %}
             </aside>
 
+            <section class="content">
             {% block body %}
             {% endblock %}
+            </section>
 
             {% block footer %}
             {% endblock %}
