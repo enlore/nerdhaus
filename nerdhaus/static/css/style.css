@@ -70,7 +70,13 @@ span.code.inline {
     padding: 1em;
 }
 
-.wrap > aside .content a {
+.wrap > aside .content h2 {
+    color: #bbb;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.wrap > aside a {
     color: #ddd;
     text-decoration: none; 
 }
