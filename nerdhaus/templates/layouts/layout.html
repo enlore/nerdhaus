@@ -7,26 +7,35 @@
     </head>
     <body>
         <div class="wrap">
+            <header>
+                <nav>
+                    <ul>
+                        <a href="/"><li>Home</li></a>
+                        <a href="/portfolio"><li>Portfolio</li></a>
+                        <a href="/blog"><li>Blog</li></a>
+                        <a href="/blag"><li>Blag</li></a>
+                        <a href="/shows"><li>Shows</li></a>
+                    </ul>
+                </nav>
+            </header>
             <aside>
                 {% block aside_content %}
                 <a href="http://nerdha.us">
-                    <div class="content">
+                    <div class="title">
                         <h1> NerdHaus </h1>
                         <h2> The Haus That Nerds Built </h2>
                     </div>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="/pages/cameron">cameron</a></li>
-                        <li><a href="/pages/cj">cj</a></li>
-                        <li><a href="/pages/ean">ean</a></li>
-                    </ul>
-                </nav>
+
+                <p class="content">
+                    Welcome to NerdHaus.  My name is Nick Lorenson.   I maintain my portfolio, keep a [[wiki]], run a blog open to public contribution about the  culture of the city we live in, document the event planning that I do with [[Ahlure]], and showcase my interests and knowledge. 
+                </p>
+
                 {% endblock %}
             </aside>
 
-                {% block body %}
-                {% endblock %}
+            {% block body %}
+            {% endblock %}
 
             {% block footer %}
             {% endblock %}
@@ -34,7 +43,7 @@
         <script src="/static/js/vendor/highlight.pack.js"></script>
         <script type="text/javascript">
             hljs.initHighlightingOnLoad();
-        </script>
-    </body>
-</html>
+            </script>
+        </body>
+    </html>
 

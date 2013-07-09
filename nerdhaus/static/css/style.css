@@ -81,7 +81,7 @@ header nav ul a {
     width: 30%;
 }
 
-.wrap > aside .content {
+.wrap > aside .title {
     background: #C24E55;
     border-top: 1px solid #F46169;
     border-bottom: 2px solid #9B3F44;
@@ -89,7 +89,7 @@ header nav ul a {
     padding: 1em;
 }
 
-.wrap > aside .content h2 {
+.wrap > aside .title h2 {
     color: #bbb;
     font-size: 18px;
     line-height: 30px;
@@ -98,6 +98,13 @@ header nav ul a {
 .wrap > aside a {
     color: #ddd;
     text-decoration: none; 
+}
+
+.wrap > aside .content {
+    background: rgba(0, 0, 0, 0.7);
+    color: #bbb;
+    margin-top: 2em;
+    padding: 1em;
 }
 
 .wrap > aside nav {
