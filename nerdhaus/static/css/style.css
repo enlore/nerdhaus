@@ -72,7 +72,7 @@ header nav ul a {
 }
 
 .wrap > aside {
-    background: url('http://i4.mirror.co.uk/incoming/article1130524.ece/ALTERNATES/s2197/Russian%27s%20argue%20over%20a%20traffic%20incident-1130524') 0 0;
+    background: url('/static/img/aside-bg.jpg') 0 0;
     background-size: cover;
     border-right: 1px solid #333;
     box-shadow: 0px 0 0 1px #ccc inset;
@@ -191,7 +191,7 @@ section.blog article span.date {
 }
 
 section.grid {
-    margin-top: 4em;
+    margin: 4em 0 4em 0;
 }
 
 section.grid h1 {
