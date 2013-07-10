@@ -263,9 +263,12 @@ section.job {
     height: 20em;
 }
 
-section.job h1 {
-    display: inline;
-    width: 15%;
+section.job img {
+    clear: left;
+    display: block;
+    float: left;
+    margin: 0.5em 0 0 1em;
+    width: 46%;
 }
 
 section.job aside {
