@@ -12,8 +12,7 @@ html {
 }
 
 body {
-    background: #eee;
-    background: url('/static/img/content-bg.jpg') 0 0 repeat;
+    background: #eee; background: url('/static/img/content-bg.jpg') 0 0 repeat;
     font-size: 16px;
     font-family: Helvetica, sans-serif;
     height: 100%;
@@ -257,4 +256,26 @@ section.grid a.blog {
 section.grid a.blag {
     background: url('/static/img/goat_hoof_up.jpg') no-repeat 0 -5px;
     background-size: cover;
+}
+
+section.job {
+    border-bottom: 1px solid #333;
+    height: 20em;
+}
+
+section.job h1 {
+    display: inline;
+    width: 15%;
+}
+
+section.job aside {
+    background: rgba(0, 0, 0, 0.5);
+    float: right;
+    height: 97%;
+    margin-top: 5px;
+    width: 35%;
+}
+
+section.job aside p {
+    padding: 0.5em;
 }
