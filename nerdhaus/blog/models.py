@@ -3,7 +3,6 @@
 from sqlalchemy import Column
 from ..extensions import db
 from ..utils import STRING_LEN
-from ..user import User
 
 class Post(db.Model):
     id          = Column(db.Integer, primary_key=True)

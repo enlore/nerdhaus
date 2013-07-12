@@ -4,10 +4,10 @@ from flask import Blueprint, render_template, abort, request, flash
 from flask.ext.login import login_required, current_user
 
 from ..extensions import db
-from ..decorators import admin_required
 
-from ..user import User
 
+def admin_required():
+    pass
 
 blog = Blueprint('blog', __name__, url_prefix='/blog')
 
