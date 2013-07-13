@@ -1,14 +1,18 @@
 from flask import Flask
 from .frontend import frontend
 from .blog import blog
+from .extensions import login_manager
 import random
 
 app = Flask(__name__)
 
 app.secret_key = 'a;lskfdjaio;enfas;lknev;soi8evnse'
 
+login_manager.init_app(app)
+
 app.register_blueprint(frontend)
 app.register_blueprint(blog)
+
 
 @app.errorhandler(404)
 def not_found(error):
