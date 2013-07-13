@@ -1,3 +1,5 @@
 from nerdhaus import app
-app.config['DEBUG'] = True
-app.run()
+
+if __name__ == '__main__':
+    app.config['DEBUG'] = True
+    app.run()
