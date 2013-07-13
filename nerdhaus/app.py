@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from .frontend import frontend
 from .blog import blog
 from .extensions import login_manager
