@@ -263,12 +263,17 @@ section.job {
     height: 20em;
 }
 
-section.job img {
-    clear: left;
-    display: block;
+section.job div {
     float: left;
-    margin: 0.5em 0 0 1em;
-    width: 46%;
+    height: 100%;
+    width: 65%;
+}
+
+section.job div img {
+    display: block;
+    padding-top: 1%;
+    max-height: 99%;
+    margin: 0 auto;
 }
 
 section.job aside {
@@ -276,9 +281,15 @@ section.job aside {
     float: right;
     height: 97%;
     margin-top: 5px;
+    padding: 1em;
     width: 35%;
 }
 
+section.job aside ul,
 section.job aside p {
-    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+section.job aside ul li {
+    list-style: none inside disc;
 }
