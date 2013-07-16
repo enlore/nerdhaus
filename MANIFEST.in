@@ -1,2 +1,3 @@
+recursive-include nerdhaus *.py
 recursive-include nerdhaus/static *
 recursive-include nerdhaus/templates *
