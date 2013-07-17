@@ -161,6 +161,7 @@ header nav ul a {
 
 section.content {
     float: right;
+    padding-top: 4em;
     width: 70%;
 }
 
@@ -173,10 +174,6 @@ section.blog {
 section.blog article {
     margin-bottom: 3em;
     width: 70%;
-}
-
-section.blog article:nth-child(1) {
-    padding-top: 2em;
 }
 
 section.blog article h3 {
