@@ -186,13 +186,57 @@ section.blog {
     }
 }
 
-
-
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 980px) {
     section.sidebar {
         height: 100%;
         position: fixed;
         width: 25%;
+    }
+
+    nav.mobile {
+        display: none;
+    }
+
+    nav.full {
+        background: rgba(0,0,0,0.8);
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        ul {
+            float: right;
+            padding: 0;
+        }
+        li {
+            float: left;
+            list-style: none;
+            border-right: 1px solid #777;
+        }
+        li:last-child {
+            border-right: none;
+
+        }
+        a {
+            color: @bg1;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            width: 100px;
+        }
+
+        a:hover {
+            color: #eee;
+            background: @hl1;
+        }
+    }
+
+    section.main {
+        float: right;
+        width: 75%;
+    }
+
+    footer {
+        clear: right;
     }
 }
 
