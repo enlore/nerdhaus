@@ -3,6 +3,10 @@ from fabric.api import *
 env.user = 'no'
 env.hosts = ['nerdha.us']
 
+def debug():
+    from nerdhaus import app
+    app.run(host="192.168.0.165", port=9002)
+
 def pack():
     local('python setup.py sdist --formats=gztar', capture=False)
 

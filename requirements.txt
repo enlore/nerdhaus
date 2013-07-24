@@ -14,7 +14,6 @@ distribute==0.6.34
 gaffer==0.4.4
 gunicorn==17.5
 itsdangerous==0.21
--e git+https://github.com/enlore/nerdhaus@d1f24d6482add6faa36ddd1b7f1c67706478151f#egg=nerdhaus-dev
 paramiko==1.10.1
 psutil==1.0.1
 pycrypto==2.6
