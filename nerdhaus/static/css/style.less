@@ -81,18 +81,42 @@ nav.full {
 
 nav.mobile {
     background: rgba(0, 0, 0, 0.9);
-    ul li a {
+    overflow: hidden;
+    a {
         border-bottom: 1px solid #000;
         color: @bg1;
         display: block;
         text-decoration: none;
         padding: 5px 0 5px 2em;
     }
-    ul { padding: 0; }
+    ul { 
+        transition: max-height 0.4s ease-out 0s;
+        visibility: hidden;
+        max-height: 0;
+        padding: 0; 
+    }
     li {
         list-style: none;
     }
+    li:active,
+    li:hover {
+        background: @hl1 ;
+    }
+    a:hover, 
+    a:active {
+        color: #eee;
+    }
+    a.nav-toggle {
+        float: right;
+        padding-right: 2em;
+    }
 }
+
+nav.mobile ul.active {
+    max-height: 143px;
+    visibility: visible;
+}
+
 
 section.sidebar {
     background: @bg1;
