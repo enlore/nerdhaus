@@ -98,8 +98,10 @@ section.sidebar {
     .you-are-here {
         background: @hl1;
         border-top: 2px solid #9DE28A;
-        border-bottom: 2px solid #9DE28A;
+        border-bottom: 4px solid #9DE28A;
+        color: @bg2;
         font-size: 1em;
+        margin-bottom: -2px;
         padding: 5px;
         text-align: center;
     }
@@ -120,6 +122,7 @@ section.sidebar {
     }
     p { color: @bg2; }
     p.content { margin: 1em; }
+    .full { display: none; }
     strong { color: #fff; }
 }
 
@@ -185,11 +188,13 @@ section.blog {
             border-bottom: 2px solid @hl1;
         }
         pre.code {
+            background: #eee;
             font-size: 14px;
             padding: 0;
             margin-left: -50px;
             overflow: scroll;
         }
+        ol li { padding: 6px 0 6px 0; }
     }
 }
 
@@ -200,11 +205,7 @@ section.blog {
         position: fixed;
         width: 25%;
         .you-are-here {
-            background: @hl1;
-            border-top: 2px solid #9DE28A;
-            border-bottom: 2px solid #9DE28A;
             font-size: 1.8em;
-            margin: 0;
             padding: 1em;
             width: 100.10%;
         }
