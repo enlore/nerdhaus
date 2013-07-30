@@ -66,10 +66,12 @@ h1,h2,h3,h4,h5,h6 {
 
 ::selection {
     background: @hl1;
+    color: @bg2;
 }
 
 ::-moz-selection {
     background: @hl1;
+    color: @bg2;
 }
 
 /* small layout */
@@ -96,7 +98,6 @@ section.sidebar {
     background: @bg1;
     border-top: 1px solid #F46169;
     border-bottom: 2px solid #9B3F44;
-    padding: 18px;
     h1,h2 {
         text-shadow: 1px 1px 0px @fg1;
         text-align: center;
@@ -112,9 +113,8 @@ section.sidebar {
         font-weight: bold;
         text-decoration: none;
     }
-    p {
-        color: @bg2;
-    }
+    p { color: @bg2; }
+    p.content { margin: 1em; }
     strong { color: #fff; }
 }
 
@@ -151,8 +151,10 @@ footer {
     }
 }
 
+section.blag,
 section.blog {
     article {
+        line-height: 1.4em;
         padding: 1.4em;
         header {
             overflow: hidden; 
@@ -188,9 +190,19 @@ section.blog {
 
 @media screen and (min-width: 980px) {
     section.sidebar {
+        border-right: 1px solid #F46169;
         height: 100%;
         position: fixed;
         width: 25%;
+        .you-are-here {
+            background: @hl1;
+            border-top: 2px solid #9DE28A;
+            border-bottom: 2px solid #9DE28A;
+            font-size: 1.8em;
+            margin: 0;
+            padding: 1em;
+            width: 100.10%;
+        }
     }
 
     nav.mobile {
@@ -234,12 +246,15 @@ section.blog {
         float: right;
         width: 75%;
     }
+    
+    section.content {
+        box-shadow: 2px 1px 2px 0px grey inset;
+    }
 
+    section.blag,
     section.blog {
-        article {
             margin: 0 auto;
             width: 60%;
-        }
     }
 
     footer {
