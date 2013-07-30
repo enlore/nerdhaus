@@ -4,8 +4,8 @@
 {% block body %}
 <section class="blog">
 <article>
-    <h3> responsive menu for the blog <p class="date">7/30/2013</p></h3>
-    <p> so as the site grows and developes, i'm implementing more and varied
+    <h3> collapsible top nav <p class="date">7/30/2013</p></h3>
+    <p> so as the site grows and develops, i'm implementing more and varied
         patterns for both the ui and the back end.  today, i did a little
         research and banged out a responsive nav menu for the header up there.
     </p>
@@ -36,7 +36,6 @@
 
     <p> here's my markup, first: </p>
         <pre class="code">
-            <code class="html">
         &lt;nav class="mobile"&gt;
             &lt;ul id="#nav"&gt;
                 &lt;li&gt;&lt;a href="http://nerdha.us"&gt; Home &lt;/a&gt;&lt;/li&gt;
@@ -46,24 +45,22 @@
             &lt;/ul&gt;
             &lt;a class="nav-toggle" href="#nav"&gt; Menu &lt;/a&gt;
         &lt;/nav&gt;
-            </code>
         </pre>
     </p>
 
     <p> here's the javascript: </p>
+
     <pre class="code">
-        <code class="javascript">
         $(document).ready(function () {
             $('a.nav-toggle').click(function () {
                 $('nav.mobile ul').toggleClass('active'); 
             });
         });
-        </code>
     </pre>
 
     <p> and the styles, processed with <a href="http://lesscss.org/">less</a>: </p>
+
     <pre class="code">
-        <code class="css">
         nav.mobile {
             background: rgba(0, 0, 0, 0.9);
             overflow: hidden;
@@ -93,20 +90,21 @@
             max-height: 143px;
             visibility: visible;
         }
-        </code>
     </pre>
 
     <p> i've snipped out the rules that don't pertain to affecting the
-    collapseable nav, so you you want to get the exact same look and feel, i
+    collapsible nav, so if you you want to get the exact same look and feel, i
     suggest you look at my source :]
     </p>
 
-    <p> in a nutshell, the javascript binds a click handler on the Menu anchor
+    <p> in a nutshell, the javascript binds a click handler on the 'Menu' anchor
     that toggles a class on and off the unordered list that comprises the actual
     menu for the site.  when it's <span class="inline code">active</span>, the
     list smoothly expands to the <span class="inline code">max-height</span>
-    thanks to that transision rule.
+    thanks to that transition declaration.
     </p>
+
+    
 
 </article>
     <article>
