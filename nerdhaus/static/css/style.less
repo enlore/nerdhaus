@@ -35,6 +35,8 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0;
 }
 
+a { outline: none; }
+
 ::selection {
     background: @hl1;
     color: @bg2;
@@ -93,6 +95,14 @@ section.sidebar {
     background: @bg1;
     border-top: 1px solid #F46169;
     border-bottom: 2px solid #9B3F44;
+    .you-are-here {
+        background: @hl1;
+        border-top: 2px solid #9DE28A;
+        border-bottom: 2px solid #9DE28A;
+        font-size: 1em;
+        padding: 5px;
+        text-align: center;
+    }
     h1,h2 {
         text-shadow: 1px 1px 0px @fg1;
         text-align: center;
