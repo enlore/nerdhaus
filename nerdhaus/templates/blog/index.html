@@ -3,110 +3,113 @@
 {% block you_are_here %} The Blog {% endblock %}
 {% block body %}
 <section class="blog">
-<article>
-    <h3> collapsible top nav <p class="date">7/30/2013</p></h3>
-    <p> so as the site grows and develops, i'm implementing more and varied
-        patterns for both the ui and the back end.  today, i did a little
-        research and banged out a responsive nav menu for the header up there.
-    </p>
+    <article>
+        <h3> collapsible top nav <p class="date">7/30/2013</p></h3>
+        <p> so as the site grows and develops, i'm implementing more and varied
+            patterns for both the ui and the back end.  today, i did a little
+            research and banged out a responsive nav menu for the header up there.
+        </p>
 
-    <p> (if you aren't sure what i'm talking about, drag the corner of your
-        browser window around to resize the window and watch how things change.)
-    </p>
+        <p> (if you aren't sure what i'm talking about, drag the corner of your
+            browser window around to resize the window and watch how things change.)
+        </p>
 
-    <p> i made use of a straight forward technique that principally does two
-        things:
-    </p>
-    <ol>
-        <li> sets a class of <span class="inline code">active</span> on the 
-        <span class="inline code">&lt;ul&gt;</span>
-                when the  <span class="inline code">menu</span> anchor is
-                clicked.
-        </li>
-        <li> based on the presence of the <span class="inline
-            code">active</span> class, styles the <span class="inline code"> 
-            max-height</span> of the unordered list that contains the navigation 
-            anchors.
-        </li>
-    </ol>
+        <p> i made use of a straightforward technique that principally does two
+            things:
+        </p>
+        <ol>
+            <li> sets a class of <span class="inline code">active</span> on the 
+            <span class="inline code">&lt;ul&gt;</span>
+                    when the  <span class="inline code">menu</span> anchor is
+                    clicked.
+            </li>
+            <li> based on the presence of the <span class="inline
+                code">active</span> class, styles the <span class="inline code"> 
+                max-height</span> of the unordered list that contains the navigation 
+                anchors.
+            </li>
+        </ol>
 
-    <p> my approach uses <a href="http://jquery.com/">jQuery</a> for the application of the class
-    and css transitions to make the whole effect smoother and more pallatable. 
-    </p>
+        <p> i use <a href="http://jquery.com">jQuery</a> manipulate the classes
+        and css transitions to make the whole effect smoother and more pallatable. 
+        </p>
 
-    <p> here's my markup, first: </p>
+        <p> here's my markup, first: </p>
+            <pre class="code">
+            &lt;nav class="mobile"&gt;
+                &lt;ul id="#nav"&gt;
+                    &lt;li&gt;&lt;a href="http://nerdha.us"&gt; Home &lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="http://nerdha.us/blog"&gt; Blog &lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="http://nerdha.us/blag"&gt; Blag &lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="http://nerdha.us/shows"&gt; Shows &lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;a class="nav-toggle" href="#nav"&gt; Menu &lt;/a&gt;
+            &lt;/nav&gt;
+            </pre>
+        </p>
+
+        <p> here's the javascript: </p>
+
         <pre class="code">
-        &lt;nav class="mobile"&gt;
-            &lt;ul id="#nav"&gt;
-                &lt;li&gt;&lt;a href="http://nerdha.us"&gt; Home &lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="http://nerdha.us/blog"&gt; Blog &lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="http://nerdha.us/blag"&gt; Blag &lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="http://nerdha.us/shows"&gt; Shows &lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-            &lt;a class="nav-toggle" href="#nav"&gt; Menu &lt;/a&gt;
-        &lt;/nav&gt;
-        </pre>
-    </p>
-
-    <p> here's the javascript: </p>
-
-    <pre class="code">
-        $(document).ready(function () {
-            $('a.nav-toggle').click(function () {
-                $('nav.mobile ul').toggleClass('active'); 
+            $(document).ready(function () {
+                $('a.nav-toggle').click(function () {
+                    $('nav.mobile ul').toggleClass('active'); 
+                });
             });
-        });
-    </pre>
+        </pre>
 
-    <p> and the styles, processed with <a href="http://lesscss.org/">less</a>: </p>
+        <p> and the styles, processed with <a href="http://lesscss.org/">less</a>: </p>
 
-    <pre class="code">
-        nav.mobile {
-            background: rgba(0, 0, 0, 0.9);
-            overflow: hidden;
-            
-            a {
-                border-bottom: 1px solid #000;
-                color: @bg1;
-                display: block;
-                text-decoration: none;
-                padding: 5px 0 5px 2em;
+        <pre class="code">
+            nav.mobile {
+                background: rgba(0, 0, 0, 0.9);
+                overflow: hidden;
+                
+                a {
+                    border-bottom: 1px solid #000;
+                    color: @bg1;
+                    display: block;
+                    text-decoration: none;
+                    padding: 5px 0 5px 2em;
+                }
+
+                ul { 
+                    transition: max-height 0.4s ease-out 0s;
+                    visibility: hidden;
+                    max-height: 0;
+                    padding: 0; 
+                }
+
+                a.nav-toggle {
+                    float: right;
+                    padding-right: 2em;
+                }
             }
 
-            ul { 
-                transition: max-height 0.4s ease-out 0s;
-                visibility: hidden;
-                max-height: 0;
-                padding: 0; 
+            nav.mobile ul.active {
+                max-height: 143px;
+                visibility: visible;
             }
+        </pre>
 
-            a.nav-toggle {
-                float: right;
-                padding-right: 2em;
-            }
-        }
+        <p> i've snipped out the rules that don't pertain to creating the
+        collapsible nav, so if you you want to get the exact same look and feel, i
+        suggest you look at mah source :]
+        </p>
 
-        nav.mobile ul.active {
-            max-height: 143px;
-            visibility: visible;
-        }
-    </pre>
+        <p> in a nutshell, the javascript binds a click handler on the 'Menu' anchor
+        that toggles a class on and off the unordered list that comprises the actual
+        menu for the site.  when it's <span class="inline code">active</span>, the
+        list smoothly expands to the <span class="inline code">max-height</span>
+        thanks to that transition declaration.
+        </p>
 
-    <p> i've snipped out the rules that don't pertain to affecting the
-    collapsible nav, so if you you want to get the exact same look and feel, i
-    suggest you look at my source :]
-    </p>
-
-    <p> in a nutshell, the javascript binds a click handler on the 'Menu' anchor
-    that toggles a class on and off the unordered list that comprises the actual
-    menu for the site.  when it's <span class="inline code">active</span>, the
-    list smoothly expands to the <span class="inline code">max-height</span>
-    thanks to that transition declaration.
-    </p>
-
-    
-
-</article>
+        <p> css transitions are a great way to put those extra finishing touches on
+        a site's UX, but keep in mind that they are only supported in IE &gt;=
+        version 10. for older versions, get you some <span class="inline code">
+        jQuery.animate()</span>.
+        </p>
+    </article>
     <article>
         <header>
             <h3>on conversation</h3>
