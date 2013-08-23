@@ -3,6 +3,13 @@
 {% block you_are_here %} The Blog {% endblock %}
 {% block body %}
 <section class="blog">
+    {% if posts %}
+        {% for post in posts %}
+            <article>
+            {{ post }}
+            </article>
+        {% endfor %}
+    {% endif %}
     <article>
         <h3> collapsible top nav <p class="date">7/30/2013</p></h3>
         <p> so as the site grows and develops, i'm implementing more and varied

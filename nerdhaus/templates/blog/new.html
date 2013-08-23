@@ -1,0 +1,8 @@
+{% from "macros/_form.html" import render_form %}
+{% extends "layouts/base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    {{ render_form(url_for('blog.new', form)) }}
+{% endblock %}
