@@ -4,6 +4,8 @@ from flask import Blueprint, render_template, abort, request, flash
 from flask.ext.login import login_required, current_user
 
 from ..extensions import db
+from models import Post, Author
+from forms import PostForm
 
 
 def admin_required():
@@ -13,7 +15,8 @@ blog = Blueprint('blog', __name__, url_prefix='/blog')
 
 @blog.route('/')
 def index():
-    return 'blog index'
+    posts = ['sweet jesus'] 
+    return render_template('blog/index.html', posts=posts)
 
 @blog.route('/post/<int:post_id>')
 def post(post_id):
@@ -39,6 +42,16 @@ def delete(post_id):
     return 'delete that post'
 
 @blog.route('/admin/post/new', methods=['GET', 'POST'])
-@login_required
 def new():
-    return 'create new post'
+    form = PostForm()
+    if form.validate_on_submit():
+       post = Post() 
+       post.author = Author()
+       post.content = form.content.data
+       post.title = form.title.data
+       post.author.email = form.author_email.data
+       db.session.add(post)
+       db.session.commit()
+       return redirect(url_for('blog.index'))
+
+    return render_template('blog/new.html', form=form)
