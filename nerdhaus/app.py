@@ -23,6 +23,8 @@ def bootstrap_blueprints(app, blueprints):
 
 def configure_app(app, config):
     app.secret_key = 'a;lskfdjaio;enfas;lknev;soi8evnse'
+    app.config.from_object(__name__)
+    app.config.from_pyfile('settings.cfg')
 
 def register_extensions(app):
     login_manager.init_app(app)
