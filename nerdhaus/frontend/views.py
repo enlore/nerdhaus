@@ -6,10 +6,6 @@ frontend = Blueprint('frontend', __name__)
 def index():
     return render_template('frontend/index.html')
 
-@frontend.route('/blog/', methods=['GET'])
-def blog_index():
-    return render_template('blog/index.html')
-
 @frontend.route('/blag/', methods=['GET'])
 def blag_index():
     return render_template('blag/index.html')
